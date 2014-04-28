@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E72AF122190E806200B905DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF121190E806200B905DB /* Foundation.framework */; };
+		E72AF124190E806200B905DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF123190E806200B905DB /* CoreGraphics.framework */; };
+		E72AF126190E806200B905DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF125190E806200B905DB /* UIKit.framework */; };
+		E72AF12C190E806300B905DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E72AF12A190E806300B905DB /* InfoPlist.strings */; };
+		E72AF12E190E806300B905DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E72AF12D190E806300B905DB /* main.m */; };
+		E72AF132190E806300B905DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E72AF131190E806300B905DB /* AppDelegate.m */; };
+		E72AF134190E806300B905DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E72AF133190E806300B905DB /* Images.xcassets */; };
+		E72AF13B190E806300B905DB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF13A190E806300B905DB /* XCTest.framework */; };
+		E72AF13C190E806300B905DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF121190E806200B905DB /* Foundation.framework */; };
+		E72AF13D190E806300B905DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF125190E806200B905DB /* UIKit.framework */; };
+		E72AF145190E806300B905DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E72AF143190E806300B905DB /* InfoPlist.strings */; };
+		E72AF147190E806300B905DB /* FavrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E72AF146190E806300B905DB /* FavrTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E72AF13E190E806300B905DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E72AF116190E806200B905DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E72AF11D190E806200B905DB;
+			remoteInfo = Favr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E72AF11E190E806200B905DB /* Favr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Favr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E72AF121190E806200B905DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E72AF123190E806200B905DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E72AF125190E806200B905DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E72AF129190E806300B905DB /* Favr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Favr-Info.plist"; sourceTree = "<group>"; };
+		E72AF12B190E806300B905DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E72AF12D190E806300B905DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E72AF12F190E806300B905DB /* Favr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Favr-Prefix.pch"; sourceTree = "<group>"; };
+		E72AF130190E806300B905DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E72AF131190E806300B905DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E72AF133190E806300B905DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E72AF139190E806300B905DB /* FavrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E72AF13A190E806300B905DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E72AF142190E806300B905DB /* FavrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FavrTests-Info.plist"; sourceTree = "<group>"; };
+		E72AF144190E806300B905DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E72AF146190E806300B905DB /* FavrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavrTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E72AF11B190E806200B905DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72AF124190E806200B905DB /* CoreGraphics.framework in Frameworks */,
+				E72AF126190E806200B905DB /* UIKit.framework in Frameworks */,
+				E72AF122190E806200B905DB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E72AF136190E806300B905DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72AF13B190E806300B905DB /* XCTest.framework in Frameworks */,
+				E72AF13D190E806300B905DB /* UIKit.framework in Frameworks */,
+				E72AF13C190E806300B905DB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E72AF115190E806200B905DB = {
+			isa = PBXGroup;
+			children = (
+				E72AF127190E806200B905DB /* Favr */,
+				E72AF140190E806300B905DB /* FavrTests */,
+				E72AF120190E806200B905DB /* Frameworks */,
+				E72AF11F190E806200B905DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E72AF11F190E806200B905DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E72AF11E190E806200B905DB /* Favr.app */,
+				E72AF139190E806300B905DB /* FavrTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E72AF120190E806200B905DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E72AF121190E806200B905DB /* Foundation.framework */,
+				E72AF123190E806200B905DB /* CoreGraphics.framework */,
+				E72AF125190E806200B905DB /* UIKit.framework */,
+				E72AF13A190E806300B905DB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E72AF127190E806200B905DB /* Favr */ = {
+			isa = PBXGroup;
+			children = (
+				E72AF130190E806300B905DB /* AppDelegate.h */,
+				E72AF131190E806300B905DB /* AppDelegate.m */,
+				E72AF133190E806300B905DB /* Images.xcassets */,
+				E72AF128190E806300B905DB /* Supporting Files */,
+			);
+			path = Favr;
+			sourceTree = "<group>";
+		};
+		E72AF128190E806300B905DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E72AF129190E806300B905DB /* Favr-Info.plist */,
+				E72AF12A190E806300B905DB /* InfoPlist.strings */,
+				E72AF12D190E806300B905DB /* main.m */,
+				E72AF12F190E806300B905DB /* Favr-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E72AF140190E806300B905DB /* FavrTests */ = {
+			isa = PBXGroup;
+			children = (
+				E72AF146190E806300B905DB /* FavrTests.m */,
+				E72AF141190E806300B905DB /* Supporting Files */,
+			);
+			path = FavrTests;
+			sourceTree = "<group>";
+		};
+		E72AF141190E806300B905DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E72AF142190E806300B905DB /* FavrTests-Info.plist */,
+				E72AF143190E806300B905DB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E72AF11D190E806200B905DB /* Favr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E72AF14A190E806300B905DB /* Build configuration list for PBXNativeTarget "Favr" */;
+			buildPhases = (
+				E72AF11A190E806200B905DB /* Sources */,
+				E72AF11B190E806200B905DB /* Frameworks */,
+				E72AF11C190E806200B905DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Favr;
+			productName = Favr;
+			productReference = E72AF11E190E806200B905DB /* Favr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E72AF138190E806300B905DB /* FavrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E72AF14D190E806300B905DB /* Build configuration list for PBXNativeTarget "FavrTests" */;
+			buildPhases = (
+				E72AF135190E806300B905DB /* Sources */,
+				E72AF136190E806300B905DB /* Frameworks */,
+				E72AF137190E806300B905DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E72AF13F190E806300B905DB /* PBXTargetDependency */,
+			);
+			name = FavrTests;
+			productName = FavrTests;
+			productReference = E72AF139190E806300B905DB /* FavrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E72AF116190E806200B905DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Netsmartz;
+				TargetAttributes = {
+					E72AF138190E806300B905DB = {
+						TestTargetID = E72AF11D190E806200B905DB;
+					};
+				};
+			};
+			buildConfigurationList = E72AF119190E806200B905DB /* Build configuration list for PBXProject "Favr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E72AF115190E806200B905DB;
+			productRefGroup = E72AF11F190E806200B905DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E72AF11D190E806200B905DB /* Favr */,
+				E72AF138190E806300B905DB /* FavrTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E72AF11C190E806200B905DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72AF12C190E806300B905DB /* InfoPlist.strings in Resources */,
+				E72AF134190E806300B905DB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E72AF137190E806300B905DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72AF145190E806300B905DB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E72AF11A190E806200B905DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72AF132190E806300B905DB /* AppDelegate.m in Sources */,
+				E72AF12E190E806300B905DB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E72AF135190E806300B905DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72AF147190E806300B905DB /* FavrTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E72AF13F190E806300B905DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E72AF11D190E806200B905DB /* Favr */;
+			targetProxy = E72AF13E190E806300B905DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E72AF12A190E806300B905DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E72AF12B190E806300B905DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E72AF143190E806300B905DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E72AF144190E806300B905DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E72AF148190E806300B905DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E72AF149190E806300B905DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E72AF14B190E806300B905DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favr/Favr-Prefix.pch";
+				INFOPLIST_FILE = "Favr/Favr-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E72AF14C190E806300B905DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favr/Favr-Prefix.pch";
+				INFOPLIST_FILE = "Favr/Favr-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E72AF14E190E806300B905DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Favr.app/Favr";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favr/Favr-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FavrTests/FavrTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E72AF14F190E806300B905DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Favr.app/Favr";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favr/Favr-Prefix.pch";
+				INFOPLIST_FILE = "FavrTests/FavrTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E72AF119190E806200B905DB /* Build configuration list for PBXProject "Favr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E72AF148190E806300B905DB /* Debug */,
+				E72AF149190E806300B905DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E72AF14A190E806300B905DB /* Build configuration list for PBXNativeTarget "Favr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E72AF14B190E806300B905DB /* Debug */,
+				E72AF14C190E806300B905DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E72AF14D190E806300B905DB /* Build configuration list for PBXNativeTarget "FavrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E72AF14E190E806300B905DB /* Debug */,
+				E72AF14F190E806300B905DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E72AF116190E806200B905DB /* Project object */;
+}
