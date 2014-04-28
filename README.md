@@ -1,4 +1,7 @@
 Favr
 ====
+iOS aplication/Anup Deshmukh
 
-Ios application-Anup
+ID Enviornment used: xcode
+Language: Objective-C
+
