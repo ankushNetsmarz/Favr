@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B966976193CE99400D532A4 /* ContactsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B966975193CE99400D532A4 /* ContactsData.m */; };
+		5B966979193D00C100D532A4 /* AccessContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B966978193D00C100D532A4 /* AccessContactVC.m */; };
+		5B97763A1934F5F300A3BFAE /* color_cord.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B9776241934F5F300A3BFAE /* color_cord.jpg */; };
+		5B9776461934F63500A3BFAE /* mainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9776451934F63500A3BFAE /* mainStoryboard.storyboard */; };
+		5B9776491934F90D00A3BFAE /* LoginScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9776481934F90D00A3BFAE /* LoginScreenVC.m */; };
 		E72AF122190E806200B905DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF121190E806200B905DB /* Foundation.framework */; };
 		E72AF124190E806200B905DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF123190E806200B905DB /* CoreGraphics.framework */; };
 		E72AF126190E806200B905DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF125190E806200B905DB /* UIKit.framework */; };
@@ -32,6 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B966974193CE99400D532A4 /* ContactsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsData.h; sourceTree = "<group>"; };
+		5B966975193CE99400D532A4 /* ContactsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsData.m; sourceTree = "<group>"; };
+		5B966977193D00C100D532A4 /* AccessContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessContactVC.h; sourceTree = "<group>"; };
+		5B966978193D00C100D532A4 /* AccessContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessContactVC.m; sourceTree = "<group>"; };
+		5B9776241934F5F300A3BFAE /* color_cord.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = color_cord.jpg; sourceTree = "<group>"; };
+		5B9776451934F63500A3BFAE /* mainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mainStoryboard.storyboard; sourceTree = "<group>"; };
+		5B9776471934F90D00A3BFAE /* LoginScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenVC.h; sourceTree = "<group>"; };
+		5B9776481934F90D00A3BFAE /* LoginScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenVC.m; sourceTree = "<group>"; };
 		E72AF11E190E806200B905DB /* Favr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Favr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72AF121190E806200B905DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E72AF123190E806200B905DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -74,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B9776181934F5F300A3BFAE /* Login Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5B9776241934F5F300A3BFAE /* color_cord.jpg */,
+			);
+			path = "Login Screen";
+			sourceTree = "<group>";
+		};
 		E72AF115190E806200B905DB = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +130,13 @@
 			children = (
 				E72AF130190E806300B905DB /* AppDelegate.h */,
 				E72AF131190E806300B905DB /* AppDelegate.m */,
-				E72AF133190E806300B905DB /* Images.xcassets */,
+				5B9776471934F90D00A3BFAE /* LoginScreenVC.h */,
+				5B9776481934F90D00A3BFAE /* LoginScreenVC.m */,
+				5B9776451934F63500A3BFAE /* mainStoryboard.storyboard */,
+				5B966974193CE99400D532A4 /* ContactsData.h */,
+				5B966975193CE99400D532A4 /* ContactsData.m */,
+				5B966977193D00C100D532A4 /* AccessContactVC.h */,
+				5B966978193D00C100D532A4 /* AccessContactVC.m */,
 				E72AF128190E806300B905DB /* Supporting Files */,
 			);
 			path = Favr;
@@ -118,6 +145,8 @@
 		E72AF128190E806300B905DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5B9776181934F5F300A3BFAE /* Login Screen */,
+				E72AF133190E806300B905DB /* Images.xcassets */,
 				E72AF129190E806300B905DB /* Favr-Info.plist */,
 				E72AF12A190E806300B905DB /* InfoPlist.strings */,
 				E72AF12D190E806300B905DB /* main.m */,
@@ -219,7 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B97763A1934F5F300A3BFAE /* color_cord.jpg in Resources */,
 				E72AF12C190E806300B905DB /* InfoPlist.strings in Resources */,
+				5B9776461934F63500A3BFAE /* mainStoryboard.storyboard in Resources */,
 				E72AF134190E806300B905DB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9776491934F90D00A3BFAE /* LoginScreenVC.m in Sources */,
+				5B966979193D00C100D532A4 /* AccessContactVC.m in Sources */,
 				E72AF132190E806300B905DB /* AppDelegate.m in Sources */,
+				5B966976193CE99400D532A4 /* ContactsData.m in Sources */,
 				E72AF12E190E806300B905DB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -347,7 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -363,6 +397,7 @@
 				GCC_PREFIX_HEADER = "Favr/Favr-Prefix.pch";
 				INFOPLIST_FILE = "Favr/Favr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -376,6 +411,7 @@
 				GCC_PREFIX_HEADER = "Favr/Favr-Prefix.pch";
 				INFOPLIST_FILE = "Favr/Favr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -439,6 +475,7 @@
 				E72AF14C190E806300B905DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E72AF14D190E806300B905DB /* Build configuration list for PBXNativeTarget "FavrTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +484,7 @@
 				E72AF14F190E806300B905DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
