@@ -153,11 +153,114 @@
                         <outlet property="passwordView" destination="iBr-gO-ttQ" id="bJT-QX-nh3"/>
                         <outlet property="slideUnlockView" destination="0hf-6z-haV" id="gmq-Qs-n23"/>
                         <outlet property="userNameView" destination="zSF-u0-7dM" id="FV5-F0-xxe"/>
+                        <segue destination="Ny8-CI-AdT" kind="push" identifier="SyncScreenSegue" id="6oc-gf-209"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwP-27-Zrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="488" y="103"/>
+        </scene>
+        <!--Social SyncVC-->
+        <scene sceneID="1uV-9o-evB">
+            <objects>
+                <viewController id="Ny8-CI-AdT" customClass="SocialSyncVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dYO-C1-nsy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BGX-Bp-ASX">
+                                <rect key="frame" x="0.0" y="43" width="320" height="373"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="4L1-Qa-AA5">
+                                        <rect key="frame" x="141" y="336" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="pageIndicatorTintColor" red="0.80000007152557373" green="0.80000007152557373" blue="0.80000007152557373" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.27843138579999999" green="0.69019609689999994" blue="0.74509805439999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </pageControl>
+                                </subviews>
+                            </scrollView>
+                            <view contentMode="scaleToFill" id="rNb-y0-hM7">
+                                <rect key="frame" x="0.0" y="416" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2if-Sp-cyO">
+                                        <rect key="frame" x="25" y="14" width="45" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="face_book_icon">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fetchFBFriends:" destination="Ny8-CI-AdT" eventType="touchUpInside" id="Exf-VU-pfg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="coB-pK-YdT">
+                                        <rect key="frame" x="100" y="14" width="45" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="twitter">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="orJ-iG-ALl">
+                                        <rect key="frame" x="175" y="14" width="45" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="g_plus_icon">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="inviteGooglePlusPeople:" destination="Ny8-CI-AdT" eventType="touchUpInside" id="aWR-Gn-rOX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zev-Vk-kLZ">
+                                        <rect key="frame" x="250" y="14" width="45" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="LinkedIn_icon">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sync with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DGu-9l-GUW">
+                                        <rect key="frame" x="123" y="0.0" width="74" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KHh-4B-Cso" customClass="GPPSignInButton">
+                                        <rect key="frame" x="168" y="7" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" id="94d-GI-3b2">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.29411765933036804" green="0.70588237047195435" blue="0.76078438758850098" alpha="1" colorSpace="deviceRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Favr" id="33w-KS-Zqw">
+                                        <barButtonItem key="rightBarButtonItem" title="Skip" style="plain" id="5GX-zR-eJi">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="K6J-lD-Nvx"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="signInButton" destination="KHh-4B-Cso" id="t4z-mT-nEl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22q-TY-69t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845" y="103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tcb-HF-ZTd">
@@ -181,12 +284,16 @@
     </scenes>
     <resources>
         <image name="1024x1024_blue_logo_with_text" width="1024" height="1024"/>
+        <image name="LinkedIn_icon" width="64" height="64"/>
         <image name="blue_and_white" width="320" height="480"/>
         <image name="blue_arrow" width="65" height="24"/>
+        <image name="face_book_icon" width="64" height="64"/>
+        <image name="g_plus_icon" width="64" height="64"/>
         <image name="gray_lock" width="36" height="39"/>
         <image name="login_white_icon" width="26" height="20"/>
         <image name="password_white_icon" width="15" height="18"/>
         <image name="sign_up_white_icon" width="28" height="20"/>
+        <image name="twitter" width="64" height="64"/>
         <image name="userImg" width="320" height="392"/>
         <image name="user_white_icon" width="15" height="18"/>
     </resources>

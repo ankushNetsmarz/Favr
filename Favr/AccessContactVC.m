@@ -222,17 +222,6 @@
 
 - (void) makeRequestForUserData
 {
-    /*  [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-     if (!error) {
-     // Success! Include your code to handle the results here
-     NSLog(@"user info: %@", result);
-     } else {
-     // An error occurred, we need to handle the error
-     // Check out our error handling guide: https://developers.facebook.com/docs/ios/errors/
-     NSLog(@"error %@", error.description);
-     }
-     }];
-     */
     NSString* searchTxt =@"me/friends";
    
     [FBRequestConnection startWithGraphPath:searchTxt
@@ -248,5 +237,57 @@
                           }];
     
 }
+
+-(void)inviteNonFriends{
+    [FBWebDialogs
+     presentRequestsDialogModallyWithSession:nil
+     message:@"YOUR_MESSAGE_HERE"
+     title:nil
+     parameters:nil
+     handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+         if (error) {
+             // Error launching the dialog or sending the request.
+             NSLog(@"Error sending request.");
+         } else {
+             if (result == FBWebDialogResultDialogNotCompleted) {
+                 // User clicked the "x" icon
+                 NSLog(@"User canceled request.");
+             } else {
+                 // Handle the send request callback
+                 NSLog(@"[resultURL query] = %@",[resultURL query]);
+           /*      if (![urlParams valueForKey:@"request"]) {
+                     // User clicked the Cancel button
+                     NSLog(@"User canceled request.");
+                 } else {
+                     // User clicked the Send button
+                     NSString *requestID = [urlParams valueForKey:@"request"];
+                     NSLog(@"Request ID: %@", requestID);
+                 }
+            */
+            }
+         }
+     }];
+ /*
+    
+    NSMutableDictionary* params =   [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                     
+                                     // Optional parameter for sending request directly to user
+                                     // with UID. If not specified, the MFS will be invoked
+                                     @"", @"to",
+                                     
+                                     // Give the structured request information
+                                     @"send", @"action_type",
+                                     @"YOUR_OBJECT_ID", @"object_id",
+                                     nil];
+    
+    [FBWebDialogs
+     presentRequestsDialogModallyWithSession:nil
+     message:@"Take this bomb to blast your way to victory!"
+     title:nil
+     parameters:params
+     handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {}
+     ];
+*/
+  }
 
 @end

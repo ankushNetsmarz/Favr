@@ -14,4 +14,5 @@
 +(id)sharedManager;
 
 -(void)fetchContacts;
+-(void)inviteNonFriends;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginScreenVC : UIViewController <UIGestureRecognizerDelegate,UITextFieldDelegate>
+@interface LoginScreenVC : UIViewController <UIGestureRecognizerDelegate,UITextFieldDelegate,UIAlertViewDelegate>
 @property(nonatomic, weak)IBOutlet UIView* slideUnlockView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgUserLogin;
 @property (weak, nonatomic) IBOutlet UIImageView *imgArrowInUnlockView;

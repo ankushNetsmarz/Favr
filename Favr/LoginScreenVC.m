@@ -7,6 +7,8 @@
 //
 @import QuartzCore;
 #import "LoginScreenVC.h"
+#import "AccessContactVC.h"
+#import "SocialSyncVC.h"
 
 @interface LoginScreenVC ()
 
@@ -40,9 +42,22 @@ static int const kUserLoginAcceptDrag = 153;
     [panGues setMaximumNumberOfTouches:1];
     [panGues setDelegate:self];
     [self.imgUserLogin addGestureRecognizer:panGues];
-   
-   
+    BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"AppRunningForFirstTime"];
+    if(!firstTime)
+        [self askUserForContactSharing];
     
+}
+-(void)askUserForContactSharing{
+    UIAlertView* fetchPhoneBK = [[UIAlertView alloc] initWithTitle:@"Fetch" message:@"Do you want this app to fetch your contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    [fetchPhoneBK show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex ==1){
+           [[AccessContactVC sharedManager] fetchContacts];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AppRunningForFirstTime"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 -(void)setupUIForLoginVC{
@@ -95,6 +110,7 @@ static int const kUserLoginAcceptDrag = 153;
 }
 -(void)loginUser{
     NSLog(@"Login User");
+    [self performSegueWithIdentifier:@"SyncScreenSegue" sender:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
