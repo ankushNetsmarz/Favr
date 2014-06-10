@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
 @property (weak, nonatomic) IBOutlet UIScrollView *mailViewScroll;
 @property (weak, nonatomic) IBOutlet UIView *userNameView;
+@property (weak, nonatomic) IBOutlet UITextField *txtEmailId;
+@property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @end

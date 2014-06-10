@@ -6,12 +6,15 @@
 //  Copyright (c) 2014 Netsmartz. All rights reserved.
 //
 
-@import AddressBook;
+//@import AddressBook;
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 #import "AccessContactVC.h"
 #import "ContactsData.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface AccessContactVC ()
+@property NSString * addressBookNum;
 
 @end
 
@@ -27,12 +30,15 @@
 }
 
 -(void)fetchContacts{
+  //  [self getContacts];
    self.userContacts = [AccessContactVC getAllContacts];
 
 #warning Remove below code in production
-
-    for(int i=0;i<5;i++){
-        NSLog(@"User Contact = %@",((ContactsData*)[self.userContacts objectAtIndex:i]).emails);
+    NSLog(@"Contact retrieved %d",self.userContacts.count);
+    if(self.userContacts.count > 0){
+        for(int i=0;i<5;i++){
+            NSLog(@"User Contact = %@",((ContactsData*)[self.userContacts objectAtIndex:i]).emails);
+        }
     }
 }
 
@@ -40,7 +46,6 @@
 {
     
     CFErrorRef *error = nil;
-    
     
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, error);
     
@@ -66,12 +71,11 @@
         
         
         ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, error);
-        ABRecordRef source = ABAddressBookCopyDefaultSource(addressBook);
-        CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(addressBook, source, kABPersonSortByFirstName);
+        CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
         CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
         NSMutableArray* items = [NSMutableArray arrayWithCapacity:nPeople];
         
-        
+    
         for (int i = 0; i < nPeople; i++)
         {
             ContactsData *contacts = [ContactsData new];
@@ -80,9 +84,22 @@
             
             //get First Name and Last Name
             
-            contacts.firstNames = (__bridge NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-            
-            contacts.lastNames =  (__bridge NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+            @try {
+                if(!(ABRecordCopyValue(person, kABPersonFirstNameProperty)== NULL)){
+                    NSString* fName = [NSString stringWithFormat:@"%@",ABRecordCopyValue(person, kABPersonFirstNameProperty)];
+                    contacts.firstNames = fName;
+                }
+                
+                NSString* lName = [NSString stringWithFormat:@"%@",ABRecordCopyValue(person, kABPersonLastNameProperty)];
+                contacts.lastNames =  lName;
+            }
+            @catch (NSException *exception) {
+                NSLog(@"error is: %@", exception);
+            }
+            @finally {
+               
+            }
+           
             
             if (!contacts.firstNames) {
                 contacts.firstNames = @"";
@@ -161,6 +178,23 @@
     
 }
 
+-(void)getContacts{
+    if ([self isABAddressBookCreateWithOptionsAvailable]) {
+        CFErrorRef error = nil; // no asterisk
+        ABAddressBookRef addressBook =
+        ABAddressBookCreateWithOptions(NULL, &error); // indirection
+        if (!addressBook) // test the result, not the error
+        {
+            NSLog(@"ERROR!!!");
+            return; // bail
+        }
+        CFArrayRef arrayOfPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
+        NSLog(@"%@", arrayOfPeople); // let's see how we did}
+    }
+}
+-(BOOL)isABAddressBookCreateWithOptionsAvailable {
+    return &ABAddressBookCreateWithOptions != NULL;
+}
 
 #pragma mark - FACEBOOK API CALLS
 - (IBAction)requestUserInfo:(id)sender

@@ -43,8 +43,30 @@ static NSString * const kClientId = @"568503989663-c8pb9qtnd09cf8o7ohs1ugmnko16o
     signIn.delegate = self;
     
     [signIn trySilentAuthentication];
+    [self initiateScrollView];
+    
+    
 }
 
+
+-(void)initiateScrollView{
+    NSInteger numberOfViews = 3;
+    for (int i = 0; i < numberOfViews; i++) {
+        CGFloat xOrigin = i * self.view.frame.size.width;
+        UIImageView *demoImage = [[UIImageView alloc] initWithFrame:CGRectMake(xOrigin, 0, 320, 320)];
+        demoImage.image = [UIImage imageNamed:@"1024x1024_blue_logo_with_text.png"];
+        [self.mainScrollView addSubview:demoImage];
+
+    }
+    self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.frame.size.width * numberOfViews, 320);
+    self.mainScrollView.delegate=self;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.mainScrollView.isDragging || self.mainScrollView.isDecelerating){
+        self.pageControl.currentPage = lround(self.mainScrollView.contentOffset.x / (self.mainScrollView.contentSize.width / self.pageControl.numberOfPages));
+    }
+}
 
 - (void)presentSignInViewController:(UIViewController *)viewController {
     // This is an example of how you can implement it if your app is navigation-based.

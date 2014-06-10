@@ -11,6 +11,8 @@
 #import <GooglePlus/GooglePlus.h>
 
 @class GPPSignInButton;
-@interface SocialSyncVC : UIViewController <GPPSignInDelegate,ListPeopleViewControllerDelegate>
+@interface SocialSyncVC : UIViewController <GPPSignInDelegate,ListPeopleViewControllerDelegate,UIScrollViewDelegate>
 @property (retain, nonatomic) IBOutlet GPPSignInButton *signInButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @end

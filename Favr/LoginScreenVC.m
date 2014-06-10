@@ -9,6 +9,7 @@
 #import "LoginScreenVC.h"
 #import "AccessContactVC.h"
 #import "SocialSyncVC.h"
+#import <Parse/Parse.h>
 
 @interface LoginScreenVC ()
 
@@ -42,11 +43,29 @@ static int const kUserLoginAcceptDrag = 153;
     [panGues setMaximumNumberOfTouches:1];
     [panGues setDelegate:self];
     [self.imgUserLogin addGestureRecognizer:panGues];
+
+    [self performSelectorInBackground:@selector(askPermissionToFetchContacts) withObject:nil];
+/*
     BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"AppRunningForFirstTime"];
     if(!firstTime)
         [self askUserForContactSharing];
+  */
     
 }
+- (IBAction)signMeUp:(id)sender {
+    
+}
+- (IBAction)logMeUp:(id)sender {
+    NSLog(@"email: %@", _txtEmailId.text);
+    [PFCloud callFunctionInBackground:@"logIn"
+                       withParameters:@{@"emailId": _txtEmailId.text }
+                                block:^(NSString *results, NSError *error) {
+                                    if (!error) {
+                                        NSLog(@"result: %@",results);
+                                    }
+                                }];
+}
+
 -(void)askUserForContactSharing{
     UIAlertView* fetchPhoneBK = [[UIAlertView alloc] initWithTitle:@"Fetch" message:@"Do you want this app to fetch your contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
     [fetchPhoneBK show];
@@ -54,10 +73,15 @@ static int const kUserLoginAcceptDrag = 153;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex ==1){
-           [[AccessContactVC sharedManager] fetchContacts];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AppRunningForFirstTime"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+           [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"AppRunningForFirstTime"];
+         [[NSUserDefaults standardUserDefaults] synchronize];
+        [self performSelector:@selector(askPermissionToFetchContacts) withObject:nil afterDelay:1.0];
+       
     }
+}
+
+-(void)askPermissionToFetchContacts{
+     [[AccessContactVC sharedManager] fetchContacts];
 }
 
 -(void)setupUIForLoginVC{
@@ -132,4 +156,6 @@ static int const kUserLoginAcceptDrag = 153;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)signMe:(id)sender {
+}
 @end

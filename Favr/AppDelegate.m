@@ -9,12 +9,16 @@
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <GooglePlus/GooglePlus.h>
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    [Parse setApplicationId:@"FAErcgGLrgrlSokwv5UTugwVkrIzNQGbrtvTInTV"
+                  clientKey:@"2hMlmafpYE3kiLVxurYBaTHQ6StngudjXYMxcUgZ"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
    return YES;
 }
 
