@@ -25,19 +25,19 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" id="0hf-6z-haV">
-                                        <rect key="frame" x="59" y="186" width="202" height="60"/>
+                                        <rect key="frame" x="59" y="184" width="202" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gray_lock" id="bFN-JB-0pu">
-                                                <rect key="frame" x="161" y="7" width="32" height="36"/>
+                                                <rect key="frame" x="161" y="9" width="32" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_arrow" id="ETv-Y4-rxQ">
-                                                <rect key="frame" x="76" y="18" width="65" height="24"/>
+                                                <rect key="frame" x="76" y="20" width="65" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImg" id="llM-lf-MVA">
-                                                <rect key="frame" x="3" y="3" width="53" height="53"/>
+                                                <rect key="frame" x="3" y="5" width="53" height="53"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
@@ -163,6 +163,7 @@
                         <outlet property="txtPassword" destination="TS2-7E-ep3" id="BM4-HQ-Hul"/>
                         <outlet property="userNameView" destination="zSF-u0-7dM" id="FV5-F0-xxe"/>
                         <segue destination="Ny8-CI-AdT" kind="push" identifier="SyncScreenSegue" id="6oc-gf-209"/>
+                        <segue destination="efq-fl-fIw" kind="push" identifier="loginToLandingSague" id="unD-xG-W46"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwP-27-Zrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -311,11 +312,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="AQ6-z5-vuI"/>
-                                    <tabBarItem systemItem="bookmarks" id="ERM-JY-Wpe"/>
-                                    <tabBarItem systemItem="more" id="mJY-t5-R70"/>
-                                    <tabBarItem systemItem="search" id="qph-7r-TZ0"/>
-                                    <tabBarItem systemItem="history" id="PmZ-A9-bY0"/>
+                                    <tabBarItem title="Contacts" image="Account.png" id="AQ6-z5-vuI"/>
+                                    <tabBarItem title="Pending" image="Pending.png" id="ERM-JY-Wpe"/>
+                                    <tabBarItem title="Favr" image="Favr.png" id="mJY-t5-R70"/>
+                                    <tabBarItem title="Account" image="person.png" id="qph-7r-TZ0"/>
+                                    <tabBarItem title="Settings" image="Settings.png" id="PmZ-A9-bY0"/>
                                 </items>
                             </tabBar>
                         </subviews>
@@ -325,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyz-X7-60q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403" y="103"/>
+            <point key="canvasLocation" x="1453" y="873"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="y82-z1-bNC">
@@ -495,11 +496,13 @@
                         <outlet property="txtFullName" destination="Sy7-yi-dQu" id="zVQ-pp-OZ6"/>
                         <outlet property="txtPassword" destination="9wO-qQ-ZGx" id="CxY-HO-DRq"/>
                         <outlet property="view" destination="68P-3f-bi9" id="qN1-Qx-AaV"/>
+                        <segue destination="efq-fl-fIw" kind="push" identifier="landToPageSeague" id="cOc-ct-jP1"/>
+                        <segue destination="Ny8-CI-AdT" kind="push" identifier="socialPage" id="x7F-JZ-8F8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnt-BR-Eg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="-509"/>
+            <point key="canvasLocation" x="688" y="-569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tcb-HF-ZTd">
@@ -523,7 +526,11 @@
     </scenes>
     <resources>
         <image name="1024x1024_blue_logo_with_text" width="1024" height="1024"/>
+        <image name="Account.png" width="30" height="30"/>
+        <image name="Favr.png" width="30" height="30"/>
         <image name="LinkedIn_icon" width="64" height="64"/>
+        <image name="Pending.png" width="30" height="30"/>
+        <image name="Settings.png" width="30" height="30"/>
         <image name="blue_and_white" width="320" height="480"/>
         <image name="blue_arrow" width="65" height="24"/>
         <image name="face_book_icon" width="64" height="64"/>
@@ -531,6 +538,7 @@
         <image name="gray_lock" width="36" height="39"/>
         <image name="login_white_icon" width="26" height="20"/>
         <image name="password_white_icon" width="15" height="18"/>
+        <image name="person.png" width="24" height="24"/>
         <image name="sign_up_white_icon" width="28" height="20"/>
         <image name="twitter" width="64" height="64"/>
         <image name="userImg" width="320" height="392"/>
@@ -541,4 +549,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="unD-xG-W46"/>
+        <segue reference="6oc-gf-209"/>
+    </inferredMetricsTieBreakers>
 </document>

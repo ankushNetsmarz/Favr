@@ -61,8 +61,21 @@ static int const KAllInputField = 5;
                                 block:^(NSString *results, NSError *error) {
                                     if (!error) {
                                         NSLog(@"result: %@",results);
-                                        [HUD removeFromSuperview];
-                                        [self performSelector:@selector(cancelSignUp:) withObject:nil afterDelay:2.0];
+                                        
+                                        if([results isEqualToString:@"You are already registered, Try LogIn !"])
+                                        {
+                                            [self showAlertWithText:@"Favr" :results];
+                                        }
+                                        else{
+                                            
+                                            [self performSegueWithIdentifier:@"socialPage"  sender:nil];
+                                           // [HUD removeFromSuperview];
+                                            //[self performSelector:@selector(cancelSignUp:) withObject:nil afterDelay:2.0];
+                                            
+                                        }
+                                        
+                                        
+                                        
                                     }
                                 }];
 }

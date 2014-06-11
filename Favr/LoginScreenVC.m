@@ -56,14 +56,57 @@ static int const kUserLoginAcceptDrag = 153;
     
 }
 - (IBAction)logMeUp:(id)sender {
+    
+    if(![self validateFields])
+        return;
     NSLog(@"email: %@", _txtEmailId.text);
     [PFCloud callFunctionInBackground:@"logIn"
-                       withParameters:@{@"emailId": _txtEmailId.text }
+                       withParameters:@{@"emailId": self.txtEmailId.text,
+                                        @"pwd":self.txtPassword.text
+                                        }
                                 block:^(NSString *results, NSError *error) {
                                     if (!error) {
                                         NSLog(@"result: %@",results);
+                                        
+                                        if([results isEqualToString:@"You are not registered with us, try SignUp!"])
+                                        {
+                                             [self showAlertWithText:@"Favr" :results];
+                                        }
+                                        else if([results isEqualToString:@"Username/Password doesnt match !"])
+                                        {
+                                            [self showAlertWithText:@"Favr" :results];
+                                        }
+                                        else{
+                                            
+                                             [self performSegueWithIdentifier:@"loginToLandingSague"  sender:nil];
+                                           
+                                        }
+                                     
+                                      
+                                        
+                                        
                                     }
                                 }];
+}
+
+-(BOOL)validateFields{
+     
+    if(self.txtEmailId.text.length == 0 ){
+        [self showAlertWithText:@"Error" :@"Please enter a valid Email Address"];
+        return NO;
+    }
+    if(self.txtPassword.text.length==0){
+        [self showAlertWithText:@"Error" :@"Please enter valid password!"];
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(void)showAlertWithText:(NSString*)title :(NSString*)message{
+    UIAlertView* validationAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [validationAlert show]
+    ;
 }
 
 -(void)askUserForContactSharing{

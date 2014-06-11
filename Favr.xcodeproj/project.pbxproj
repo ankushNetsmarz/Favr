@@ -41,6 +41,17 @@
 		E72AF13D190E806300B905DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72AF125190E806200B905DB /* UIKit.framework */; };
 		E72AF145190E806300B905DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E72AF143190E806300B905DB /* InfoPlist.strings */; };
 		E72AF147190E806300B905DB /* FavrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E72AF146190E806300B905DB /* FavrTests.m */; };
+		E74C9E48194846CF00136CF4 /* Account_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E3D194846CF00136CF4 /* Account_white.png */; };
+		E74C9E4A194846CF00136CF4 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E3F194846CF00136CF4 /* bar.png */; };
+		E74C9E4B194846CF00136CF4 /* Contact_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E40194846CF00136CF4 /* Contact_white.png */; };
+		E74C9E4C194846CF00136CF4 /* Contact.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E41194846CF00136CF4 /* Contact.png */; };
+		E74C9E4D194846CF00136CF4 /* Favr_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E42194846CF00136CF4 /* Favr_white.png */; };
+		E74C9E4F194846CF00136CF4 /* Pending_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E44194846CF00136CF4 /* Pending_white.png */; };
+		E74C9E51194846CF00136CF4 /* Settings_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E46194846CF00136CF4 /* Settings_white.png */; };
+		E74C9E541948495B00136CF4 /* Account.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E531948495B00136CF4 /* Account.png */; };
+		E74C9E5819484A8900136CF4 /* Favr.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E5519484A8900136CF4 /* Favr.png */; };
+		E74C9E5919484A8900136CF4 /* Pending.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E5619484A8900136CF4 /* Pending.png */; };
+		E74C9E5A19484A8900136CF4 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C9E5719484A8900136CF4 /* Settings.png */; };
 		E767893F1946D862001A2925 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E767893E1946D862001A2925 /* GooglePlus.bundle */; };
 		E76789431946E366001A2925 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76789421946E366001A2925 /* FacebookSDK.framework */; };
 		E76789451946F298001A2925 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76789441946F297001A2925 /* Parse.framework */; };
@@ -113,6 +124,17 @@
 		E72AF142190E806300B905DB /* FavrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FavrTests-Info.plist"; sourceTree = "<group>"; };
 		E72AF144190E806300B905DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E72AF146190E806300B905DB /* FavrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavrTests.m; sourceTree = "<group>"; };
+		E74C9E3D194846CF00136CF4 /* Account_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Account_white.png; path = "../../../../Users/weexcel/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/1775BFDF-ED1D-4CED-B99C-433C831F5739/icon/Account_white.png"; sourceTree = "<group>"; };
+		E74C9E3F194846CF00136CF4 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = "../../../../Users/weexcel/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/1775BFDF-ED1D-4CED-B99C-433C831F5739/icon/bar.png"; sourceTree = "<group>"; };
+		E74C9E40194846CF00136CF4 /* Contact_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Contact_white.png; path = "../../../../Users/weexcel/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/1775BFDF-ED1D-4CED-B99C-433C831F5739/icon/Contact_white.png"; sourceTree = "<group>"; };
+		E74C9E41194846CF00136CF4 /* Contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Contact.png; path = "../../../../Users/weexcel/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/1775BFDF-ED1D-4CED-B99C-433C831F5739/icon/Contact.png"; sourceTree = "<group>"; };
+		E74C9E42194846CF00136CF4 /* Favr_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Favr_white.png; path = "../../../../Users/weexcel/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/1775BFDF-ED1D-4CED-B99C-433C831F5739/icon/Favr_white.png"; sourceTree = "<group>"; };
+		E74C9E44194846CF00136CF4 /* Pending_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pending_white.png; path = "../../../../Users/weexcel/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/1775BFDF-ED1D-4CED-B99C-433C831F5739/icon/Pending_white.png"; sourceTree = "<group>"; };
+		E74C9E46194846CF00136CF4 /* Settings_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings_white.png; path = "../../../../Users/weexcel/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/1775BFDF-ED1D-4CED-B99C-433C831F5739/icon/Settings_white.png"; sourceTree = "<group>"; };
+		E74C9E531948495B00136CF4 /* Account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Account.png; path = ../../../../Users/weexcel/Pictures/Account.png; sourceTree = "<group>"; };
+		E74C9E5519484A8900136CF4 /* Favr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Favr.png; path = ../../../../Users/weexcel/Pictures/Favr.png; sourceTree = "<group>"; };
+		E74C9E5619484A8900136CF4 /* Pending.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pending.png; path = ../../../../Users/weexcel/Pictures/Pending.png; sourceTree = "<group>"; };
+		E74C9E5719484A8900136CF4 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings.png; path = ../../../../Users/weexcel/Pictures/Settings.png; sourceTree = "<group>"; };
 		E767893E1946D862001A2925 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 		E76789421946E366001A2925 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		E76789441946F297001A2925 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -278,6 +300,17 @@
 		E72AF128190E806300B905DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E74C9E5519484A8900136CF4 /* Favr.png */,
+				E74C9E5619484A8900136CF4 /* Pending.png */,
+				E74C9E5719484A8900136CF4 /* Settings.png */,
+				E74C9E531948495B00136CF4 /* Account.png */,
+				E74C9E3D194846CF00136CF4 /* Account_white.png */,
+				E74C9E3F194846CF00136CF4 /* bar.png */,
+				E74C9E40194846CF00136CF4 /* Contact_white.png */,
+				E74C9E41194846CF00136CF4 /* Contact.png */,
+				E74C9E42194846CF00136CF4 /* Favr_white.png */,
+				E74C9E44194846CF00136CF4 /* Pending_white.png */,
+				E74C9E46194846CF00136CF4 /* Settings_white.png */,
 				E767895C194745F0001A2925 /* MBProgressHud */,
 				5B9776181934F5F300A3BFAE /* Login Screen */,
 				E72AF133190E806300B905DB /* Images.xcassets */,
@@ -391,13 +424,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E74C9E4B194846CF00136CF4 /* Contact_white.png in Resources */,
 				5B97763A1934F5F300A3BFAE /* color_cord.jpg in Resources */,
 				E72AF12C190E806300B905DB /* InfoPlist.strings in Resources */,
 				E767893F1946D862001A2925 /* GooglePlus.bundle in Resources */,
+				E74C9E4D194846CF00136CF4 /* Favr_white.png in Resources */,
+				E74C9E5819484A8900136CF4 /* Favr.png in Resources */,
 				5B9776461934F63500A3BFAE /* mainStoryboard.storyboard in Resources */,
+				E74C9E4C194846CF00136CF4 /* Contact.png in Resources */,
+				E74C9E5A19484A8900136CF4 /* Settings.png in Resources */,
+				E74C9E541948495B00136CF4 /* Account.png in Resources */,
+				E74C9E5919484A8900136CF4 /* Pending.png in Resources */,
 				E72AF134190E806300B905DB /* Images.xcassets in Resources */,
+				E74C9E48194846CF00136CF4 /* Account_white.png in Resources */,
+				E74C9E4F194846CF00136CF4 /* Pending_white.png in Resources */,
 				5B51CCD519461B2100E73015 /* ShareConfigurationOptions.plist in Resources */,
 				5B51CCF119461E7E00E73015 /* TopBar.png in Resources */,
+				E74C9E51194846CF00136CF4 /* Settings_white.png in Resources */,
+				E74C9E4A194846CF00136CF4 /* bar.png in Resources */,
 				5B51CCCD19461ABB00E73015 /* ListPeopleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
