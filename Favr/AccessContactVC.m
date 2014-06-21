@@ -12,8 +12,15 @@
 #import "AccessContactVC.h"
 #import "ContactsData.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
 
 @interface AccessContactVC ()
+{
+    BOOL isFacebookAvailable;
+}
+@property(nonatomic,strong)ACAccountStore* accountStore;
+@property (strong, nonatomic)ACAccount *facebookAccount;
 @property NSString * addressBookNum;
 
 @end
@@ -32,11 +39,11 @@
 -(void)fetchContacts{
   //  [self getContacts];
    self.userContacts = [AccessContactVC getAllContacts];
-
-#warning Remove below code in production
+   #warning Remove below code in production
     NSLog(@"Contact retrieved %d",self.userContacts.count);
+    int maxCount = self.userContacts.count > 5 ? 5 : self.userContacts.count;
     if(self.userContacts.count > 0){
-        for(int i=0;i<5;i++){
+        for(int i=0;i<maxCount;i++){
             NSLog(@"User Contact = %@",((ContactsData*)[self.userContacts objectAtIndex:i]).emails);
         }
     }
@@ -204,6 +211,7 @@
     NSArray *permissionsNeeded = @[@"public_profile", @"read_friendlists",@"user_friends",@"email"];
     
     // Request the permissions the user currently has
+
     [FBRequestConnection startWithGraphPath:@"/me/permissions"
                           completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                               if (!error){
@@ -324,4 +332,153 @@
 */
   }
 
+
+- (void)requestFacebookAccessFirstTime {
+    if(!self.accountStore) {
+        self.accountStore = [[ACAccountStore alloc] init];
+    }
+    ACAccountType *facebookAccount = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    
+    /*
+     When requesting access to the account is when the user will be prompted for consent.
+     */
+    NSDictionary *options = @{ ACFacebookAppIdKey: @"594680290562724",
+                               ACFacebookPermissionsKey: @[@"email",@"user_about_me"],
+                               ACFacebookAudienceKey: ACFacebookAudienceFriends };
+    [self.accountStore requestAccessToAccountsWithType:facebookAccount options:options completion:^(BOOL granted, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Error = %@", error);
+            if(error){
+                [self.delegate accessedUserFBAccountSuccessfully:NO];
+            }
+            if(granted){
+                NSArray *accounts = [self.accountStore accountsWithAccountType:facebookAccount];
+                //it will always be the last object with single sign on
+                ACAccount* fbAccount = [accounts lastObject];
+                ACAccountCredential *fbCredential = [fbAccount credential];
+                 self.fbAccessToken = [fbCredential oauthToken];
+                NSLog(@"Facebook Access Token: %@", self.fbAccessToken);
+                
+                [self getMyInfo:fbAccount];
+            }
+        });
+    }];
+}
+
+
+
+-(void)getMyInfo:(ACAccount*)facebookAccount
+{
+    
+    NSURL *requestURL = [NSURL URLWithString:@"https://graph.facebook.com/me"];
+    
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:requestURL parameters:nil];
+    request.account = facebookAccount;
+    
+    [request performRequestWithHandler:^(NSData *data, NSHTTPURLResponse *response, NSError *error) {
+        
+        if(!error)
+        {
+            
+            NSDictionary *list =[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
+            NSLog(@"Dictionary contains: %@", list );
+            
+            
+            
+            self.userFBEmail = [NSString stringWithFormat:@"%@",[list objectForKey:@"email"]];
+            NSLog(@"global mail ID : %@",self.userFBEmail);
+           [[NSUserDefaults standardUserDefaults] setObject:self.userFBEmail forKey:@"loggedInUserEmail"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            
+            self.userFBName = [NSString stringWithFormat:@"%@",[list objectForKey:@"name"]];
+            NSLog(@"facebook name %@",self.userFBName);
+            
+            self.userFBID = [NSString stringWithFormat:@"%@",[list objectForKey:@"id"]];
+            [self getUserFBDisplayPhoto:facebookAccount];
+
+        }
+        else
+        {
+            //handle error gracefully
+            NSLog(@"error from get%@",error);
+            //attempt to revalidate credentials
+            [self.delegate accessedUserFBAccountSuccessfully:NO];
+        }
+        
+    }];
+    
+}
+
+-(void)getUserFBDisplayPhoto:(ACAccount*)facebookAccount{
+[self callAnotherMethod];
+    return;
+    
+    NSString* url= [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture",self.userFBID];
+    NSURL *requestURL = [NSURL URLWithString:url];
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:requestURL parameters:nil];
+    request.account = facebookAccount;
+    
+    [request performRequestWithHandler:^(NSData *data, NSHTTPURLResponse *response, NSError *error) {
+        
+        if(!error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.userFBImage = [UIImage imageWithData:data];
+            });
+           //[self.delegate accessedUserFBAccountSuccessfully:YES];
+
+        }
+        else{
+            NSLog(@"Error =  %@",error);
+        }
+    }];
+    
+    
+    
+}
+
+-(void)callAnotherMethod{
+
+    NSString* str = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?redirect=0&type=normal&key=594680290562724&access_token=%@",self.userFBID,self.fbAccessToken];
+    NSLog(@"NEW STR ========> %@",str);
+        NSURL *url = [NSURL URLWithString:str];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response,
+                                                   NSData *data, NSError *connectionError)
+         {
+             if (data.length > 0 && connectionError == nil)
+             {
+                 NSDictionary *greeting = [NSJSONSerialization JSONObjectWithData:data
+                                                                          options:0
+                                                                            error:NULL];
+                 NSLog(@"FB = %@",greeting);
+                 
+                 NSURL* imgUrl =  [NSURL URLWithString:[[greeting objectForKey:@"data"] objectForKey:@"url"]];
+                 [self performSelectorInBackground:@selector(downlaodAndSaveUserProfImage:) withObject:imgUrl];
+             /*
+                 
+                 dispatch_queue_t imageQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,  0ul);
+                 
+                 dispatch_async(imageQueue, ^{
+                    
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         UIImage* image = [UIImage imageWithData:data];
+                         self.userFBImage= [UIImage imageWithData:data];
+                     });
+                     
+                 });
+              */
+             }
+         }];
+}
+
+-(void)downlaodAndSaveUserProfImage:(NSURL*)imgUrl{
+    NSData *data = [NSData dataWithContentsOfURL:imgUrl];
+    NSString* usrProfImagePath = @"~/Documents/userFBImage.png";
+    [data writeToFile:[usrProfImagePath stringByExpandingTildeInPath] atomically:YES];
+    [self.delegate accessedUserFBAccountSuccessfully:YES];
+}
 @end

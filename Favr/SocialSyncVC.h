@@ -9,10 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ListPeopleViewController.h"
 #import <GooglePlus/GooglePlus.h>
+#import "OAuthLoginView.h"
+#import "JSONKit.h"
+#import "OAConsumer.h"
+#import "OAMutableURLRequest.h"
+#import "OADataFetcher.h"
+#import "OATokenManager.h"
 
 @class GPPSignInButton;
 @interface SocialSyncVC : UIViewController <GPPSignInDelegate,ListPeopleViewControllerDelegate,UIScrollViewDelegate>
 @property (retain, nonatomic) IBOutlet GPPSignInButton *signInButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property(weak,nonatomic)IBOutlet UIView* socialSharingView;
+@property(weak,nonatomic)IBOutlet UISwitch* switchGoogleP;
+-(IBAction)socialSwitchesActivation:(UISwitch*)sender;
 @end

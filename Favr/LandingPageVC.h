@@ -10,4 +10,6 @@
 
 @interface LandingPageVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,weak)IBOutlet UITableView* tableView;
+@property(nonatomic,weak)IBOutlet UINavigationBar* navigationBar;
+-(IBAction)reloadContactsTableView:(id)sender;
 @end

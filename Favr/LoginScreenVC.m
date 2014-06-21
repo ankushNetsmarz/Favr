@@ -10,6 +10,7 @@
 #import "AccessContactVC.h"
 #import "SocialSyncVC.h"
 #import <Parse/Parse.h>
+#import "signUp.h"
 
 @interface LoginScreenVC ()
 
@@ -17,10 +18,6 @@
 
 
 @implementation LoginScreenVC
-
-static int const kUserMinOrigin = 3;
-static int const kUserMaxOrigin = 173;
-static int const kUserLoginAcceptDrag = 153;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,20 +33,26 @@ static int const kUserLoginAcceptDrag = 153;
 
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setupUIForLoginVC];
-  
-    UIPanGestureRecognizer* panGues = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveImage:)];
-    [panGues setMinimumNumberOfTouches:1];
-    [panGues setMaximumNumberOfTouches:1];
-    [panGues setDelegate:self];
-    [self.imgUserLogin addGestureRecognizer:panGues];
-
-    [self performSelectorInBackground:@selector(askPermissionToFetchContacts) withObject:nil];
-/*
-    BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"AppRunningForFirstTime"];
-    if(!firstTime)
-        [self askUserForContactSharing];
-  */
+   
+    self.mySwitch.transform = CGAffineTransformMakeScale(0.80, 0.60);
+    
+    self.btnLogin.layer.cornerRadius = 15.0f;
+    self.btnLogin.layer.masksToBounds=YES;
+    
+    self.btnSignUp.layer.cornerRadius = 15.0f;
+    self.btnSignUp.layer.masksToBounds=YES;
+    
+    self.passwordView.layer.cornerRadius = 15.0f;
+    self.passwordView.layer.masksToBounds=YES;
+    self.userNameView.layer.cornerRadius = 15.0f;
+    self.userNameView.layer.masksToBounds=YES;
+    NSString* usrProfImagePath = @"~/Documents/userFBImage.png";
+    UIImage* tempImage = [UIImage imageWithContentsOfFile:[usrProfImagePath stringByExpandingTildeInPath]];
+    //[[AccessContactVC sharedManager] userFBImage];
+    self.userFBPic.image = tempImage;
+    self.userFBPic.layer.cornerRadius = 50.0f;
+    self.userFBPic.layer.masksToBounds=YES;
+    self.txtEmailId.text = [[AccessContactVC sharedManager] userFBEmail];
     
 }
 - (IBAction)signMeUp:(id)sender {
@@ -77,7 +80,9 @@ static int const kUserLoginAcceptDrag = 153;
                                             [self showAlertWithText:@"Favr" :results];
                                         }
                                         else{
-                                            
+                                            [[NSUserDefaults standardUserDefaults] setObject:self.txtPassword.text forKey:@"loggedInUserPassword"];
+                                            [[NSUserDefaults standardUserDefaults] setObject:self.txtEmailId.text forKey:@"loggedInUserEmail"];
+                                            [[NSUserDefaults standardUserDefaults]synchronize];
                                              [self performSegueWithIdentifier:@"loginToLandingSague"  sender:nil];
                                            
                                         }
@@ -109,76 +114,6 @@ static int const kUserLoginAcceptDrag = 153;
     ;
 }
 
--(void)askUserForContactSharing{
-    UIAlertView* fetchPhoneBK = [[UIAlertView alloc] initWithTitle:@"Fetch" message:@"Do you want this app to fetch your contact" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
-    [fetchPhoneBK show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex ==1){
-           [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"AppRunningForFirstTime"];
-         [[NSUserDefaults standardUserDefaults] synchronize];
-        [self performSelector:@selector(askPermissionToFetchContacts) withObject:nil afterDelay:1.0];
-       
-    }
-}
-
--(void)askPermissionToFetchContacts{
-     [[AccessContactVC sharedManager] fetchContacts];
-}
-
--(void)setupUIForLoginVC{
-    self.slideUnlockView.layer.cornerRadius = 30.0f;
-    self.imgUserLogin.layer.cornerRadius = 25.0f;
-    self.imgUserLogin.layer.masksToBounds=YES;
-    self.imgUserLogin.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-    self.imgUserLogin.layer.shadowOffset = CGSizeMake(1.0, 2.0);
-    self.imgUserLogin.layer.shadowOpacity = 1.0;
-
-    self.mySwitch.transform = CGAffineTransformMakeScale(0.80, 0.60);
-    
-    self.btnLogin.layer.cornerRadius = 15.0f;
-    self.btnLogin.layer.masksToBounds=YES;
-    
-    self.btnSignUp.layer.cornerRadius = 15.0f;
-    self.btnSignUp.layer.masksToBounds=YES;
-    
-    self.passwordView.layer.cornerRadius = 15.0f;
-    self.passwordView.layer.masksToBounds=YES;
-    self.userNameView.layer.cornerRadius = 15.0f;
-    self.userNameView.layer.masksToBounds=YES;
-    
-}
-
-
--(void)moveImage:(UIPanGestureRecognizer*)panGues{
-    CGPoint point = [panGues locationInView:self.slideUnlockView];//get the coordinate
-   
-    if(point.x >= kUserMinOrigin && point.x <=kUserMaxOrigin)
-    {
-        CGRect frame = self.imgUserLogin.frame;
-        frame.origin.x=point.x-(self.imgUserLogin.frame.size.width/2);
-        self.imgUserLogin.frame = frame;
-        if(point.x > kUserLoginAcceptDrag){
-            static dispatch_once_t onceToken;
-            dispatch_once(&onceToken, ^{
-                [self loginUser];
-            });
-        }
-        
-    }
-    if(panGues.state == UIGestureRecognizerStateEnded){
-        [UIView animateWithDuration:0.5 animations:^{
-            CGRect frame = self.imgUserLogin.frame;
-            frame.origin.x=kUserMinOrigin;
-            self.imgUserLogin.frame=frame;
-        }];
-    }
-}
--(void)loginUser{
-    NSLog(@"Login User");
-    [self performSegueWithIdentifier:@"SyncScreenSegue" sender:nil];
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
@@ -199,6 +134,13 @@ static int const kUserLoginAcceptDrag = 153;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)signMe:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"gotoSignUpScreen"]){
+        signUp* destVC = (signUp*)[segue destinationViewController];
+        destVC.txtEmail.text= self.txtEmailId.text;
+        destVC.txtPassword.text = self.txtPassword.text;
+        destVC.usrEmail= self.txtEmailId.text;
+        destVC.usrPasswd= self.txtPassword.text;
+    }
 }
 @end

@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginScreenVC : UIViewController <UIGestureRecognizerDelegate,UITextFieldDelegate,UIAlertViewDelegate>
-@property(nonatomic, weak)IBOutlet UIView* slideUnlockView;
-@property (weak, nonatomic) IBOutlet UIImageView *imgUserLogin;
-@property (weak, nonatomic) IBOutlet UIImageView *imgArrowInUnlockView;
+
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 @property (weak, nonatomic) IBOutlet UIButton *btnSignUp;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
+@property (weak, nonatomic) IBOutlet UIView *userNameView;
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
 @property (weak, nonatomic) IBOutlet UIScrollView *mailViewScroll;
-@property (weak, nonatomic) IBOutlet UIView *userNameView;
 @property (weak, nonatomic) IBOutlet UITextField *txtEmailId;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UIImageView* userFBPic;
+
+
 @end

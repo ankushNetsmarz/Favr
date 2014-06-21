@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <GooglePlus/GooglePlus.h>
 #import <Parse/Parse.h>
+#import "AccessContactVC.h"
 
 @implementation AppDelegate
 

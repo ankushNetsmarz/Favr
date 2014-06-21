@@ -32,7 +32,8 @@ static int const KAllInputField = 5;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.txtEmail.text = self.usrEmail;
+    self.txtPassword.text=self.usrPasswd;
     for(UIView* view in self.mainScrollView.subviews){
         if (view.tag == KAllInputField) {
             view.layer.cornerRadius= 15.0f;
@@ -55,29 +56,28 @@ static int const KAllInputField = 5;
     
     NSLog(@"email: %@", self.txtEmail.text);
     [PFCloud callFunctionInBackground:@"singUp"
-                       withParameters:@{@"emailId": self.txtEmail.text,
-                                        @"pwd":self.txtPassword.text,
-                                        @"fullName": self.txtFullName.text}
-                                block:^(NSString *results, NSError *error) {
-                                    if (!error) {
-                                        NSLog(@"result: %@",results);
-                                        
-                                        if([results isEqualToString:@"You are already registered, Try LogIn !"])
-                                        {
-                                            [self showAlertWithText:@"Favr" :results];
-                                        }
-                                        else{
-                                            
-                                            [self performSegueWithIdentifier:@"socialPage"  sender:nil];
-                                           // [HUD removeFromSuperview];
-                                            //[self performSelector:@selector(cancelSignUp:) withObject:nil afterDelay:2.0];
-                                            
-                                        }
-                                        
-                                        
-                                        
-                                    }
-                                }];
+       withParameters:@{@"emailId": self.txtEmail.text,
+                        @"pwd":self.txtPassword.text,
+                        @"fullName": self.txtFullName.text}
+                block:^(NSString *results, NSError *error) {
+                    if (!error) {
+                        NSLog(@"result: %@",results);
+                        
+                        if([results isEqualToString:@"You are already registered, Try LogIn !"])
+                        {
+                            [self showAlertWithText:@"Favr" :results];
+                        }
+                        else{
+                            [[NSUserDefaults standardUserDefaults] setObject:self.txtPassword.text forKey:@"loggedInUserPassword"];
+                            [[NSUserDefaults standardUserDefaults] setObject:self.txtEmail forKey:@"loggedInUserEmail"];
+                            [[NSUserDefaults standardUserDefaults]synchronize];
+                            [self performSegueWithIdentifier:@"socialPage"  sender:nil];
+                            [HUD hide:YES];
+                            
+                        }
+                        
+                    }
+                }];
 }
 
 -(BOOL)validateFields{
@@ -89,11 +89,7 @@ static int const KAllInputField = 5;
         [self showAlertWithText:@"Error" :@"Please enter a valid Email Address"];
         return NO;
     }
-    if(![self.txtPassword.text isEqualToString:self.txtConfirmPassword.text]){
-        [self showAlertWithText:@"Error" :@"Password and Confirm Password does not match"];
-        return NO;
-    }
- 
+     
     return YES;
 }
 
@@ -103,11 +99,10 @@ static int const KAllInputField = 5;
     ;
 }
 - (void)showLoadingWithLabel{
-	
-	HUD = [[MBProgressHUD alloc] initWithView:self.view];
-	[self.view addSubview:HUD];
-	
-	HUD.labelText = @"Loading";
+	HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Loading";
+
 
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
